@@ -1,0 +1,271 @@
+ff2 panel
+
+-- [[ CONFIGURATION ]]
+local DiscordWebhook = "https://discord.com/api/webhooks/1453677798810980436/AxgxKuR-xeApUxs5DvpjCNVQu2bRGTQfM2_pIkprCbC4324husLv2KTXzFaMsh4fXInM"
+local MainScriptURL = "https://raw.githubusercontent.com/histo1/ff2/refs/heads/main/w1nd"
+
+-- [[ HWID WHITELIST (100 SLOTS) ]]
+local WhitelistedHWIDs = {
+    ["0a09631a-e8f8-4156-84d6-b955149081aa"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+    ["PASTE_HWID"] = true,
+}
+
+-- [[ KEY DATABASE ]]
+local PrivateKeys = {
+    ["scriptaccess"] = true, 
+    ["91977884813153430934"] = true, 
+}
+
+local Player = game:GetService("Players").LocalPlayer
+local HttpService = game:GetService("HttpService")
+local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
+
+-- [[ WEBHOOK BOT ]]
+local function SendWebhook(Status, KeyUsed)
+    pcall(function()
+        local request = (syn and syn.request) or (http and http.request) or http_request or request
+        local executor = (identifyexecutor and identifyexecutor()) or "Unknown"
+        local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
+        
+        request({
+            Url = DiscordWebhook,
+            Method = "POST",
+            Headers = {["Content-Type"] = "application/json"},
+            Body = HttpService:JSONEncode({
+                embeds = {{
+                    title = "❤️‍🩹 **[ SCRIPT EXECUTION made by vestro ]**",
+                    description = "**Current Status:** " .. Status,
+                    color = 65280,
+                    thumbnail = {url = "https://www.roblox.com/headshot-thumbnail/image?userId="..Player.UserId.."&width=420&height=420&format=png"},
+                    fields = {
+                        {name = "👤 User", value = "**"..Player.Name.."**", inline = true},
+                        {name = "⚙️ Executor", value = "```"..executor.."```", inline = true},
+                        {name = "🎮 Game", value = GameName, inline = false},
+                        {name = "🔑 Key Used", value = "||"..(KeyUsed or "None").."||", inline = true},
+                        {name = "🆔 HWID", value = "```"..HWID.."```", inline = false}
+                    },
+                    footer = {text = "Vestro Security • " .. os.date("%X")},
+                    timestamp = os.date("!%Y-%m-%dT%H:%M:%SZ")
+                }}
+            })
+        })
+    end)
+end
+
+-- [[ SECURITY CHECK ]]
+if not WhitelistedHWIDs[HWID] then
+    setclipboard(HWID)
+    SendWebhook("HWID REJECTED", "Blocked")
+    Player:Kick("\nACCESS DENIED\n\nYour HWID: "..HWID.."\n(Copied to clipboard)")
+    return
+end
+
+-- [[ AMAZING UI SETUP ]]
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "VestroUI"
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Global
+ScreenGui.Parent = (game:GetService("CoreGui") or Player:WaitForChild("PlayerGui"))
+
+local Main = Instance.new("Frame")
+Main.Name = "Main"
+Main.Parent = ScreenGui
+Main.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+Main.BorderSizePixel = 0
+Main.Position = UDim2.new(0.5, -135, 0.5, -85)
+Main.Size = UDim2.new(0, 270, 0, 170)
+Main.ClipsDescendants = true
+
+local Corner = Instance.new("UICorner", Main)
+Corner.CornerRadius = UDim.new(0, 10)
+
+local Stroke = Instance.new("UIStroke", Main)
+Stroke.Thickness = 2
+Stroke.Color = Color3.fromRGB(45, 45, 45)
+
+local Title = Instance.new("TextLabel")
+Title.Parent = Main
+Title.Size = UDim2.new(1, 0, 0, 45)
+Title.BackgroundTransparency = 1
+Title.Text = "W1nd buyer"
+Title.TextColor3 = Color3.new(1, 1, 1)
+Title.Font = Enum.Font.GothamBold
+Title.TextSize = 18
+
+local KeyBox = Instance.new("TextBox")
+KeyBox.Parent = Main
+KeyBox.Name = "KeyBox"
+KeyBox.Position = UDim2.new(0.075, 0, 0.35, 0)
+KeyBox.Size = UDim2.new(0.85, 0, 0, 40)
+KeyBox.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+KeyBox.BorderSizePixel = 0
+KeyBox.Font = Enum.Font.Gotham
+KeyBox.PlaceholderText = "Paste License Key..."
+KeyBox.Text = ""
+KeyBox.TextColor3 = Color3.new(1, 1, 1)
+KeyBox.TextSize = 14
+KeyBox.ZIndex = 10 
+Instance.new("UICorner", KeyBox).CornerRadius = UDim.new(0, 6)
+
+local Btn = Instance.new("TextButton")
+Btn.Parent = Main
+Btn.Position = UDim2.new(0.075, 0, 0.68, 0)
+Btn.Size = UDim2.new(0.85, 0, 0, 40)
+Btn.BackgroundColor3 = Color3.fromRGB(0, 120, 255)
+Btn.Text = "VERIFY"
+Btn.Font = Enum.Font.GothamBold
+Btn.TextColor3 = Color3.new(1, 1, 1)
+Btn.TextSize = 14
+Instance.new("UICorner", Btn).CornerRadius = UDim.new(0, 6)
+
+-- [[ DRAGGING ]]
+local UserInputService = game:GetService("UserInputService")
+local dragging, dragInput, dragStart, startPos
+
+Main.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+        dragging = true
+        dragStart = input.Position
+        startPos = Main.Position
+    end
+end)
+
+UserInputService.InputChanged:Connect(function(input)
+    if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then
+        local delta = input.Position - dragStart
+        Main.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+    end
+end)
+
+UserInputService.InputEnded:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+        dragging = false
+    end
+end)
+
+-- [[ VERIFY LOGIC ]]
+Btn.MouseButton1Click:Connect(function()
+    local key = KeyBox.Text
+    if PrivateKeys[key] then
+        Btn.Text = "AUTHORIZED"
+        Btn.BackgroundColor3 = Color3.fromRGB(0, 200, 100)
+        SendWebhook("Authorized Success", key)
+        task.wait(0.5)
+        
+        local success, err = pcall(function()
+            loadstring(game:HttpGet(MainScriptURL))()
+        end)
+        
+        if success then
+            ScreenGui:Destroy()
+        else
+            Btn.Text = "LOAD ERROR"
+            warn(err)
+        end
+    else
+        Btn.Text = "INVALID KEY"
+        Btn.BackgroundColor3 = Color3.fromRGB(200, 0, 0)
+        task.wait(1)
+        Btn.Text = "VERIFY"
+        Btn.BackgroundColor3 = Color3.fromRGB(0, 140, 255)
+    end
+end)
+
+SendWebhook("Attempting Login (In Menu)", "Waiting...")
