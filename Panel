@@ -1,5 +1,3 @@
-ff2 panel
-
 -- [[ CONFIGURATION ]]
 local DiscordWebhook = "https://discord.com/api/webhooks/1453677798810980436/AxgxKuR-xeApUxs5DvpjCNVQu2bRGTQfM2_pIkprCbC4324husLv2KTXzFaMsh4fXInM"
 local MainScriptURL = "https://raw.githubusercontent.com/histo1/ff2/refs/heads/main/w1nd"
