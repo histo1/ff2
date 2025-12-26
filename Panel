@@ -5,7 +5,7 @@ local MainScriptURL = "https://raw.githubusercontent.com/histo1/ff2/refs/heads/m
 -- [[ HWID WHITELIST (100 SLOTS) ]]
 local WhitelistedHWIDs = {
     ["0a09631a-e8f8-4156-84d6-b955149081aa"] = true,
-    ["PASTE_HWID"] = true,
+    ["2AFA93AC-BA11-4C6A-8877-2AA0754AFD63"] = true,
     ["PASTE_HWID"] = true,
     ["PASTE_HWID"] = true,
     ["PASTE_HWID"] = true,
